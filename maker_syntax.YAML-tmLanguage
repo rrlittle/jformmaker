@@ -1,0 +1,91 @@
+fileTypes:
+- ''
+name: Dataset-Template
+patterns:
+- match: '^\s*(#).*$?'
+  name: comment.line.number-sign.maker_syntax
+- captures:
+    '1':
+      name: section.data.name.begin
+    '2':
+      name: section.data.name.middle
+    '3':
+      name: section.data.name.value
+    '4':
+      name: section.data.name.equote
+    '5':
+      name: section.data.name.end
+  match: (name":")((.*?)("))(,)
+  name: section.data.name
+- captures:
+    '1':
+      name: section.data.validator.begin
+    '2':
+      name: section.data.validator.middle
+    '3':
+      name: section.data.validator.value
+    '4':
+      name: section.data.validator.equote
+    '5':
+      name: section.data.validator.end
+  match: (validator":")((.*?)("))(,)
+  name: section.data.validator
+- captures:
+    '1':
+      name: section.data.dependencies.begin
+    '2':
+      name: section.data.dependencies.middle
+    '3':
+      name: section.data.dependencies.value
+    '4':
+      name: section.data.dependencies.equote
+    '5':
+      name: section.data.dependencies.end
+  match: (dependencies":")((.*?)("))(,)
+  name: section.data.dependencies
+- captures:
+    '1':
+      name: section.data.ui.begin
+    '2':
+      name: section.data.ui.middle
+    '3':
+      name: section.data.ui.value
+    '4':
+      name: section.data.ui.equote
+    '5':
+      name: section.data.ui.end
+  match: (ui":")((.*?)("))(,)
+  name: section.data.ui
+- captures:
+    '1':
+      name: section.data.field.begin
+    '2':
+      name: section.data.field.middle
+    '3':
+      name: section.data.field.value
+    '4':
+      name: section.data.field.equote
+  match: (field":")((.*?)("))
+  name: section.data.field
+- begin: '! -Validators-'
+  end: ~Validators~
+  name: section.validator
+  patterns:
+  - include: $self
+- begin: '! -Keys-'
+  end: ~Keys~
+  name: section.key
+  patterns:
+  - include: $self
+- begin: '! -Data List-'
+  end: ~Data List~
+  name: section.datalist
+  patterns:
+  - include: $self
+- begin: '! -Dependencies-'
+  end: ~Dependencies~
+  name: section.dependencies
+  patterns:
+  - include: $self
+scopeName: text.dataset_template
+uuid: babc7c14-1861-48fb-94d5-681801716f0f

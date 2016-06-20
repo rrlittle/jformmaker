@@ -1,0 +1,109 @@
+ // [PackageDev] target_format: plist, ext: tmLanguage
+{
+  "name": "Dataset_Template",
+  "scopeName": "text.dataset_template",
+  "fileTypes": [
+    ""
+  ],
+  "uuid": "babc7c14-1861-48fb-94d5-681801716f0f",
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.maker_syntax",
+      "match": "^\\s*(#).*$\n?"
+    },
+    {
+      "name": "section.data.name",
+      "match": "(name\":\")((.*?)(\"))(,)",
+      "captures":{
+        "1":{"name":"section.data.name.begin"},
+        "2":{"name":"section.data.name.middle"},
+        "3":{"name":"section.data.name.value"},
+        "4":{"name":"section.data.name.equote"},
+        "5":{"name":"section.data.name.end"}
+      }
+    },
+    {
+      "name": "section.data.validator",
+      "match": "(validator\":\")((.*?)(\"))(,)",
+      "captures":{
+        "1":{"name":"section.data.validator.begin"},
+        "2":{"name":"section.data.validator.middle"},
+        "3":{"name":"section.data.validator.value"},
+        "4":{"name":"section.data.validator.equote"},
+        "5":{"name":"section.data.validator.end"}
+      }
+    },
+    {
+      "name": "section.data.dependencies",
+      "match": "(dependencies\":\")((.*?)(\"))(,)",
+      "captures":{
+        "1":{"name":"section.data.dependencies.begin"},
+        "2":{"name":"section.data.dependencies.middle"},
+        "3":{"name":"section.data.dependencies.value"},
+        "4":{"name":"section.data.dependencies.equote"},
+        "5":{"name":"section.data.dependencies.end"}
+      }
+    },
+    {
+      "name": "section.data.ui",
+      "match": "(ui\":\")((.*?)(\"))(,)",
+      "captures":{
+        "1":{"name":"section.data.ui.begin"},
+        "2":{"name":"section.data.ui.middle"},
+        "3":{"name":"section.data.ui.value"},
+        "4":{"name":"section.data.ui.equote"},
+        "5":{"name":"section.data.ui.end"}
+      }
+    },
+    {
+      "name": "section.data.field",
+      "match": "(field\":\")((.*?)(\"))",
+      "captures":{
+        "1":{"name":"section.data.field.begin"},
+        "2":{"name":"section.data.field.middle"},
+        "3":{"name":"section.data.field.value"},
+        "4":{"name":"section.data.field.equote"}
+      }
+    },
+    {
+      "name": "section.validator",
+      "begin": "-Validators-",
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ],
+      "end": "~Validators~"
+    },
+    {
+      "name": "section.key",
+      "begin": "-Keys-",
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ],
+      "end": "~Keys~"
+    },
+    {
+      "name": "section.datalist",
+      "begin": "-Data List-",
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ],
+      "end": "~Data List~"
+    },
+    {
+      "name": "section.dependencies",
+      "begin": "-Dependencies-",
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ],
+      "end": "~Dependencies~"
+    }
+  ]
+}
